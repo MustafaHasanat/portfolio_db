@@ -1,0 +1,70 @@
+export default {
+  name: 'item',
+  title: 'Item',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'currentPrice',
+      title: 'Current Price',
+      type: 'number',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'oldPrice',
+      title: 'Old Price',
+      type: 'number',
+      initialValue: 0,
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'isBestSelling',
+      title: 'Is Best Selling',
+      type: 'boolean',
+      initialValue: false,
+    },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{type: 'author'}],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'screenshots',
+      title: 'Screenshots',
+      type: 'array',
+      of: [{type: 'image'}],
+      validation: (Rule: any) => Rule.required().min(4),
+    },
+    {
+      name: 'primaryColor',
+      title: 'Primary Color',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+  ],
+}
